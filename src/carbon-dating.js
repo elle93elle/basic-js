@@ -17,15 +17,28 @@ const HALF_LIFE_PERIOD = 5730;
  * dateSample('WOOT!') => false
  *
  */
-function dateSample(/*sampleActivity*/) {
-  // if (parseFloat(sampleActivity)!==number) {
-  //   return false
-  // }
+function dateSample(sampleActivity) {
+  if (isNaN (+sampleActivity)) {
+    return false
+  }
 
-  // if (sampleActivity === undefined) {
-  //   return false
-  // }
+ if (typeof sampleActivity !== 'string') {
+   return false
+ }
 
+  if (sampleActivity === undefined) {
+    return false
+  }
+
+  if (sampleActivity>MODERN_ACTIVITY) {
+    return false
+  }
+
+  if (sampleActivity<=0) {
+    return false
+  }
+
+  return Math.ceil(Math.log(MODERN_ACTIVITY/+sampleActivity)/(0.693/HALF_LIFE_PERIOD));
    
   // remove line with error and write your code here
 }
