@@ -17,11 +17,12 @@ const { NotImplementedError } = require('../extensions/index.js');
 function calculateHanoi(disksNumber, turnsSpeed) {
   let turnsInSec = turnsSpeed/3600;
   let turns = (2**disksNumber)-1;
-  let seconds = turns/turnsInSec;
-  return {
-     turns,
-     seconds
+  let seconds = Math.floor(turns/turnsInSec);
+  let res = {
+    'turns':turns,
+    'seconds':seconds
   }
+  return res
 }
 
 module.exports = {
