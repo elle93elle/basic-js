@@ -18,7 +18,7 @@ function getCommonCharacterCount(s1, s2) {
 
   array1.forEach(item => {
     if (array2.includes(item)) {
-      array2.split(array2.indexOf(item),1)
+      array2.splice(array2.indexOf(item),1)
       res++
     }
   })
